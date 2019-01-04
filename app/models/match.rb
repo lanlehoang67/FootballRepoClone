@@ -22,6 +22,26 @@ class Match < ApplicationRecord
   delegate :name, to: :team1, prefix: true
   delegate :name, to: :team2, prefix: true
 
+  def set_status_by_time
+    relax_half_time = Settings.min_half_time
+    sec_per_min = Settings.seconds
+    begin_match_time = match_date.to_i
+    end_match_time = begin_match_time + (relax_half_time +
+      extra_time2 + extra_time1 + time) * sec_per_min
+    time_now = Time.current.to_i
+    status = get_status begin_match_time, time_now, end_match_time
+  end
+
+  def get_status begin_match_time, time_now, end_match_time
+    if begin_match_time > time_now
+      Match.statuses[:not_occur]
+    elsif end_match_time > time_now
+      Match.statuses[:live]
+    else
+      Match.statuses[:finished]
+    end
+  end
+
   def check_match_finish
     return if score_bets.nil? || match_date >= Time.now
     score_bets.each do |score_bet|
