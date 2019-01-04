@@ -1,4 +1,4 @@
-<li>
+<li class="first">
   <span><%= match.team1.name %> <strong>-</strong> </span>
 </li>
 <li>
@@ -7,3 +7,8 @@
 <li class="detail">
   <span><%= link_to t("matches.match.detail"), match_path(match) %></span>
 </li>
+<style type="text/css">
+  .team-btw-match{
+    margin-top: 120px !important;
+  }
+</style>
