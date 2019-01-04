@@ -6,9 +6,7 @@ class MatchesController < ApplicationController
       per_page: Settings.matches.page
   end
 
-  def show
-    set_status_by_time @match
-  end
+  def show; end
 
   private
 

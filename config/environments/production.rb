@@ -88,7 +88,19 @@ Rails.application.configure do
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
-
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  #host here
+  config.action_mailer.default_url_options = {host: host}
+  config.action_mailer.smtp_settings = {
+      address: "smtp.gmail.com",
+      port: 587,
+      domain: "gmail.com",
+      user_name: "noreply10081998@gmail.com",
+      password: "awesomeacademy123",
+      authentication: "plain",
+      enable_starttls_auto: true
+  }
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end

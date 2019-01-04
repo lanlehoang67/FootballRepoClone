@@ -21,6 +21,9 @@
   <%= f.number_field :extra_time2, value: Settings.matches.valueex, min: Settings
     .matches.min, max: Settings.matches.max, class: "form-control" %>
 
+  <%= f.label :status %>
+  <%= f.select :status, collection: Match.statuses.keys.to_a %>
+
   <%= f.label :round_id %>
   <%= f.number_field :round_id, value: Settings.matches.value, min: Settings
     .matches.value, class: "form-control" %>

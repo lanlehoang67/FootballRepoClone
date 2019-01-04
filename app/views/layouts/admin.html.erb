@@ -46,7 +46,6 @@
                <!-- user login dropdown start-->
                <li class="dropdown">
                   <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                  <img alt="" src="images/2.png">
                   <span class="username"><%= current_user.name %></span>
                   <b class="caret"></b>
                   </a>
@@ -93,6 +92,9 @@
       <section id="main-content">
          <section class="wrapper">
             <%= yield %>
+            <% flash.each do |key, value| %>
+              <div class="alert alert-<%= key %>"><%= value %></div>
+            <% end %>
          </section>
       </section>
       <!-- footer -->

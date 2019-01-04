@@ -26,4 +26,4 @@ success: "success"
 bonus: 2
 match_per: 15
 seconds: 60
-minhalftime: 15
+min_half_time: 15

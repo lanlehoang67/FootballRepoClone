@@ -1,7 +1,7 @@
-<td class=""><%= match.id %></td>
-<td class=""><%= match.team1.name %></td>
-<td class=""><%= match.team2.name %></td>
-<td class=""><%= match.status %></td>
+<td class="id"><%= match.id %></td>
+<td class="team1"><%= match.team1.name %></td>
+<td class="team2"><%= match.team2.name %></td>
+<td class="status"><%= match.status %></td>
 
 
 <td class="actions"><%= link_to t("matches.match.delete"), admin_match_path(match), method: :delete,

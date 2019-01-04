@@ -3,9 +3,6 @@
 <td class=""><%= match_result.score1 %></td>
 <td class=""><%= match_result.score2 %></td>
 <td class=""><%= match_result.match.team2.name %></td>
-<td class=""><%= match_result.match.status %></td>
-
-
 <td class="actions"><%= link_to t("match_results.match_result.delete"), admin_match_result_path(match_result), method: :delete,
    data: { confirm: t("match_results.match_result.sure") } %></td>
 <td class="actions"><%= link_to t("match_results.match_result.edit"), edit_admin_match_result_path(match_result) %></td>

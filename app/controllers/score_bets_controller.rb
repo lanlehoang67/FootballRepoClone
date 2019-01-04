@@ -34,6 +34,7 @@ class ScoreBetsController < ApplicationController
   end
 
   def check_deleted
+    return if @score_bet.match.status = Match.statuses[:finished]
     if @score_bet.destroy
       flash.now[:alert] = t "score_bet.controller.delete_success"
     else
@@ -63,7 +64,7 @@ class ScoreBetsController < ApplicationController
 
   def create_bet
     bet = @match.score_bets.create user_id: current_user.id,
-      price: params[:score_bet][:price],
+      price: params[:score_bet][:price], status: :pending,
         outcome: params[:score_bet][:outcome]
     create_notify current_user.name, bet
     current_user.reduce_money params[:score_bet][:price]
@@ -74,6 +75,7 @@ class ScoreBetsController < ApplicationController
       create_score_bet
     else
       flash.now[:error] = t "score_bet.controller.late_bet"
+      redirect_to match_path(@match)
     end
   end
 

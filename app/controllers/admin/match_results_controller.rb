@@ -1,6 +1,6 @@
 class Admin::MatchResultsController < Admin::BaseController
   before_action :load_match_result, except: [:index, :new, :create]
-  skip_before_action :verify_authenticity_token, only: :destroy
+  skip_before_action :verify_authenticity_token, only: [:destroy, :create]
 
   def index
     @match_results = MatchResult.newest.paginate page: params[:page],
@@ -25,23 +25,28 @@ class Admin::MatchResultsController < Admin::BaseController
 
   def create
     @match_result = MatchResult.new match_result_params
-    if @match_result.save
-      flash[:info] = t "match_results.create.success"
-      redirect_to admin_match_results_path
+    if @match_result.match.finished?
+      if @match_result.save
+        @match_result.match.check_match_finish
+        flash[:info] = t "match_results.create.success"
+        redirect_to admin_match_results_path
+      else
+        flash[:danger] = t "match_results.create.error"
+        render :new
+      end
     else
-      flash[:danger] = t "match_results.create.error"
-      render :new
+      redirect_to admin_match_results_path
+      flash[:error] = "cannot add a match result if that match isn't finished"
     end
   end
 
   def destroy
     if @match_result.destroy
-      flash[:success] = t "match_results
-        .match_results_controller.match_resuilt_deleted"
+      flash[:success] = t "match_results.controller.match_result_deleted"
     else
       flash[:warning] = t "match_results.match_results_controller.failed"
     end
-      redirect_to admin_match_results_path
+    redirect_to admin_match_results_path
   end
 
   private
@@ -49,7 +54,6 @@ class Admin::MatchResultsController < Admin::BaseController
   def load_match_result
     @match_result = MatchResult.find_by id: params[:id]
     return if @match_result
-
     flash[:warning] = t "match_results.match_results_controller.not_found"
     redirect_to admin_match_result_path
   end

@@ -3,7 +3,13 @@
   <td><%= score_bet.match.team1_name %></td>
   <td><%= score_bet.price %></td>
   <td><%= score_bet.outcome %></td>
-  <td><span style="color: red"><%= link_to "delete", match_score_bets_path(score_bet), method: :delete,
-   data: { confirm: t("users.user.sure") }, remote: true, :class => "score_delete" %></span></td>
-   <td><span style="color: blue"><%= link_to "edit", match_score_bets_path(score_bet) %></span></td>
+  <td><%= score_bet.status %></td>
+<% if score_bet.pending? %>
+    <td><span style="color: red"><%= link_to "delete", match_score_bets_path(score_bet), method: :delete,
+     data: { confirm: t("users.user.sure") }, remote: true, :class => "score_delete" %></span></td>
+     <td><span style="color: blue"><%= link_to "edit", match_score_bets_path(score_bet) %></span></td>
+<% else %>
+  <td></td>
+  <td></td>
+<% end %>
 </tr>

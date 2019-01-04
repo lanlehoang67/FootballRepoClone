@@ -19,8 +19,5 @@ class LeaguesController < ApplicationController
 
   def load_rankings_by_league
     @rankings = @league.rankings.newest
-    return if @rankings.any?
-    flash[:danger] = t "rankings.controller.not_found"
-    redirect_to rankings_path
   end
 end

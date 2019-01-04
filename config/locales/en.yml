@@ -71,6 +71,17 @@ en:
         news: "News"
         rankings: "Rankings"
         match: "Match"
+  user_mailer:
+    won: "Bet won!"
+    lost: "Bet lost"
+    send_fail_bet:
+      greetings: "Greetings."
+      sad: "Unfortunately, you've lost the bet.Sad reacts only"
+      detail: "Greetings.Unfortunately, you've lost the bet.Sad reacts only"
+    send_success_bet:
+      congratulations: "Congratulations!"
+      won: "You've won the bet, your money has been paid"
+      detail: "Congratulations! You've won the bet, your money has been paid"
   teams:
     controller:
       not_found: "No team found"
@@ -98,6 +109,7 @@ en:
       price: "Price"
       outcome: "Bet"
       action: "Action"
+      status: "Status"
     create:
       success: "create success"
       invalid: "cannot log in"
@@ -131,6 +143,13 @@ en:
     league:
       detail: "Detail"
   matches:
+    index:
+      id: "Id"
+      team1:
+        name: "Home"
+      team2:
+        name: "Guess"
+      status: "Status"
     show:
       not_occur: "Not occur yet"
       live: "Live"
@@ -164,7 +183,7 @@ en:
       sure: "You sure?"
       delete: "Delete"
       edit: "Edit"
-    match_results_controller:
+    controller:
       not_found: "Match result not found"
       pls_log_in: "Please log in."
       match_result_deleted: "Math result deleted"
@@ -174,11 +193,12 @@ en:
       success: "create success"
       error: "error"
     index:
-      matchid: "match id"
+      match_id: "match id"
       score1: "home score"
       score2: "guest score"
-      namehome: "team home"
-      nameguest: "team guest"
+      name_home: "team home"
+      name_guest: "team guest"
+      status: "Status"
     add_result: "add result"
   score_bet:
     controller:
