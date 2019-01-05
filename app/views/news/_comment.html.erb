@@ -1,0 +1,24 @@
+<div class="commant-text row">
+   <div class="col-lg-2 col-md-2 col-sm-4 col-xs-hidden">
+      <div class="profile">
+         <img class="img-responsive" src="images/client.png" alt="#">
+      </div>
+   </div>
+   <div class="col-lg-10 col-md-10 col-sm-8 col-xs-hidden">
+      <h5><%= comment.user_name %></h5>
+      <p>
+        <span class="c_date"><%= l(comment.created_at, format: :short)%></span>
+      </p>
+      <p class="msg"><h4 class="message"><%= comment.message %></h4>
+         <h2>
+            <%= link_to t("news.comment.edit"),
+              edit_news_comment_path(news_id: comment.new.id, id: comment.id),
+              class: "edit" %>
+         </h2>
+         <h2>
+            <%= link_to t("news.comment.delete"), news_comment_path(news_id: comment.new.id, id: comment.id),
+              method: :delete, remote: true, class: "delete" %>
+         </h2>
+      </p>
+   </div>
+</div>

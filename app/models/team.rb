@@ -8,7 +8,9 @@ class Team < ApplicationRecord
   has_many :team2_matches, class_name: Match.name,
     foreign_key: :team_id2, dependent: :destroy
 
+  delegate :name, to: :league, prefix: true
   delegate :name, to: :stadium, prefix: true
   scope :newest, ->{order created_at: :desc}
-  scope :search_by_country, ->(nation){where "nation like?", "%#{nation}%"}
+  scope :search_by_country, ->(search){where "nation like?", "%#{search}%" if search.present?}
+  scope :looking_for, ->(search){joins(:league).where("leagues.country like?","%#{search.strip}%")}
 end

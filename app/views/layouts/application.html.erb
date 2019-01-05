@@ -13,6 +13,8 @@
   </head>
 
   <body>
+    <div id="fb-root"></div>
+    <%= javascript_include_tag "fb" %>
     <%= render "shared/home/top" %>
     <%= yield %>
     <%= render "shared/home/footer" %>

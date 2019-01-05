@@ -1,0 +1,18 @@
+<%= form_for(@comment, url: news_comment_path(news_id: @comment.new.id, id: @comment.id), method: :patch) do |f| %>
+  <div class="comment-box-field">
+    <div class="row">
+      <div class="col-md-6">
+        <p>
+        <div class="comment-box-half"><%= f.text_field :message, id: "form-edit", class: "form-control1", placeholder: "Message" %></div>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="comment-box-submit">
+          <%= f.submit "Update", class: "btn btn-primary", id: "upbtn" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

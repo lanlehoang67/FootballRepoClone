@@ -1,0 +1,14 @@
+<%= form_for(@comment, url: news_comments_path(news_id: @new.id), remote: true, method: :post) do |f| %>
+<div class="comment-box-field">
+  <p class="col-md-12 col-sm-12"><%= t("comments.form.not_published") %><span class="required">*</span></p>
+  <span class="required">*</span></p>
+  <div class="col-lg-6">
+    <div class="comment-box-half"><%= f.text_field :message, id: "form-create", class: "form-control1", placeholder: "Message" %></div>
+  </div>
+  <div class="col-lg-6">
+    <div class="comment-box-submit">
+      <%= f.submit "Comment", class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
+<% end %>

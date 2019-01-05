@@ -281,6 +281,17 @@ $(document).ready(function(){
          });
 
          })(jQuery);
-
-
+$( document ).ready(function () {
+$(".commant-text").slice(0, 3).show();
+  if ($(".commant-text:hidden").length != 0) {
+    $("#loadMore").show();
+  }
+  $("#loadMore").on('click', function (e) {
+    e.preventDefault();
+    $(".commant-text:hidden").slice(0, 6).slideDown();
+    if ($(".commant-text:hidden").length == 0) {
+      $("#loadMore").fadeOut('slow');
+    }
+  });
+});
 

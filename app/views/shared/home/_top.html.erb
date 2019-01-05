@@ -89,8 +89,7 @@
                         </li>
                         <li><%= link_to t("shared.home.top.team"), teams_path %></li>
                         <li>
-                          <a href="news.html"><%=
-                            t "shared.home.top.news" %></a>
+                          <%= link_to t("shared.home.top.news"), news_index_path %>
                         </li>
                         <li>
                           <%= link_to leagues_path do %>

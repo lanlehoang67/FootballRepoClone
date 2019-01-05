@@ -1,0 +1,9 @@
+<div class="col-lg-6 col-sm-6 col-xs-12">
+  <div class="news-post-widget">
+    <div class="news-post-detail">
+      <span><%= new.created_at %></span>
+      <h2><%= link_to new.title, news_path(new) %></h2>
+      <p><%= truncate(new.content, length: Settings.content.length) %></p>
+    </div>
+  </div>
+</div>

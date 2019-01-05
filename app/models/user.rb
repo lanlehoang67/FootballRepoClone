@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
   has_many :comments, dependent: :destroy
   has_many :notifications, dependent: :destroy
+  has_many :news
   has_many :score_bets, dependent: :destroy
 
   validates :name,  presence: true,

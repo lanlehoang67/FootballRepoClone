@@ -19,8 +19,14 @@ match_results:
   min: 0
 rankings:
   page: 30
+news:
+  page: 5
 teams:
   page: 30
+content:
+  length: 20
+comments:
+  page: 5
 error: "error"
 success: "success"
 bonus: 2

@@ -29,36 +29,36 @@ class ScoreBetsController < ApplicationController
   def load_score_bet
     @score_bet = ScoreBet.find_by id: params[:match_id]
     return if @score_bet
-    flash.now[:error] = t "score_bet.controller.cannot_find_record"
+    flash[:error] = t "score_bet.controller.cannot_find_record"
     redirect_to user_path(current_user)
   end
 
   def check_deleted
     return if @score_bet.match.status = Match.statuses[:finished]
     if @score_bet.destroy
-      flash.now[:alert] = t "score_bet.controller.delete_success"
+      flash[:alert] = t "score_bet.controller.delete_success"
     else
-      flash.now[:error] = t "score_bet.controller.delete_fail"
+      flash[:error] = t "score_bet.controller.delete_fail"
     end
   end
 
   def check_update
     if @score_bet.update_attributes score_params
-      flash.now[:alert] = t "score_bet.controller.success_updated"
+      flash[:alert] = t "score_bet.controller.success_updated"
       redirect_to user_path(current_user)
     else
       render :edit
-      flash.now[:error] = t "score_bet.controller.fail_updated"
+      flash[:error] = t "score_bet.controller.fail_updated"
     end
   end
 
   def create_score_bet
     if create_bet
       redirect_to match_path(@match)
-      flash.now[:alert] = t "score_bet.controller.success_bet"
+      flash[:alert] = t "score_bet.controller.success_bet"
     else
       render :new
-      flash.now[:error] = t "score_bet.controller.fail_bet"
+      flash[:error] = t "score_bet.controller.fail_bet"
     end
   end
 
@@ -74,7 +74,7 @@ class ScoreBetsController < ApplicationController
     if @match.match_date >= Time.now && @match.not_occur?
       create_score_bet
     else
-      flash.now[:error] = t "score_bet.controller.late_bet"
+      flash[:error] = t "score_bet.controller.late_bet"
       redirect_to match_path(@match)
     end
   end
@@ -85,7 +85,7 @@ class ScoreBetsController < ApplicationController
       if params[:score_bet][:price].to_f <= current_user.money.to_f
         check_date
       else
-        flash.now[:error] = t "score_bet.controller.not_enough_money"
+        flash[:error] = t "score_bet.controller.not_enough_money"
       end
     else
       redirect_to login_path

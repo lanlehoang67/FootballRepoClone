@@ -1,7 +1,7 @@
 class MatchesController < ApplicationController
   include MatchesHelper
   before_action :load_match, :build_score_bet, only: :show
-  before_action only: :show
+  before_action only: :show do
     @match.set_status_by_time
   end
 

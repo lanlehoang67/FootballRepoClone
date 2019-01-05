@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_03_052858) do
+ActiveRecord::Schema.define(version: 2019_01_05_035534) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -68,6 +68,8 @@ ActiveRecord::Schema.define(version: 2019_01_03_052858) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_news_on_user_id"
   end
 
   create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -156,6 +158,7 @@ ActiveRecord::Schema.define(version: 2019_01_03_052858) do
   add_foreign_key "comments", "news", column: "new_id"
   add_foreign_key "comments", "users"
   add_foreign_key "match_results", "matches"
+  add_foreign_key "news", "users"
   add_foreign_key "notifications", "score_bets"
   add_foreign_key "notifications", "users"
   add_foreign_key "rankings", "leagues"
