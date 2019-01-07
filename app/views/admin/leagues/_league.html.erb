@@ -1,0 +1,13 @@
+<tr><td class=""><%= league.id %></td>
+<td class=""><%= league.name %></td>
+<td class=""><%= league.country %></td>
+<td class=""><%= league.start_date %></td>
+<td class=""><%= league.end_date %></td>
+<td class=""><%= league.number_of_team %></td>
+<td class="text-center"><time datetime="<%= league.created_at %>" class="timestamp"><%= l(league.created_at, format: :short) %></time></td>
+<td class="text-center"><time datetime="<%= league.updated_at %>" class="timestamp"><%= l(league.updated_at, format: :short) %></time></td>
+<td class="actions"><%= link_to t("users.user.delete"), admin_league_path(league), method: :delete,
+   data: { confirm: t("users.user.sure") } %></td>
+<td class="actions"><%= link_to t("users.user.edit"), edit_admin_league_path(league) %></td>
+</tr>
+

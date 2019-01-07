@@ -4,8 +4,8 @@ class ScoreBet < ApplicationRecord
   belongs_to :user
   belongs_to :match
   has_many :notifications, dependent: :destroy
-  validates :price, presence: true, numericality: true
-  validates :outcome, presence: true, numericality: true
+  validates :price, presence: true
+  validates :outcome, presence: true
 
   def win
     ActiveRecord::Base.transaction do

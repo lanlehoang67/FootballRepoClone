@@ -1,0 +1,8 @@
+<tr><td class=""><%= notification.id %></td>
+<td class=""><%= notification.user.id %></td>
+<td class=""><%= notification.message %></td>
+<td class="text-center"><time datetime="<%= notification.created_at %>" class="timestamp"><%= l(notification.created_at, format: :short) %></time></td>
+<td class="text-center"><time datetime="<%= notification.updated_at %>" class="timestamp"><%= l(notification.updated_at, format: :short) %></time></td>
+<td class="actions"><%= link_to t("users.user.delete"), admin_notification_path(notification), method: :delete,
+   data: { confirm: t("users.user.sure") } %></td>
+</tr>

@@ -1,0 +1,65 @@
+<li>
+  <input type="button" class="btn btn-primary" name="btnAdd" value="Add League" onclick="window.location.href='<%= new_admin_league_url %>'" >
+</li>
+<div class="table-container">
+   <table class="trestle-table">
+      <thead>
+         <tr>
+            <th class="">
+               <a class="sort" href="">
+               ID
+               </a>
+            </th>
+            <th class="">
+               <a class="sort" href="">
+               Name
+               </a>
+            </th>
+            <th class="">
+               <a class="sort" href="">
+               Country
+               </a>
+            </th>
+            </th>
+            <th class="text-center">
+               <a class="sort" href="">
+               Start Date
+               </a>
+            </th>
+            <th class="text-center">
+               <a class="sort" href="">
+               End Date
+               </a>
+            </th>
+            <th class="text-center">
+               <a class="sort" href="">
+               Number of teams
+               </a>
+            </th>
+            <th class="text-center">
+               <a class="sort" href="">
+               Created at
+               </a>
+            </th>
+            <th class="text-center">
+               <a class="sort" href="">
+               Updated at
+               </a>
+            </th>
+            <th class="actions"></th>
+         </tr>
+      </thead>
+      <tbody>
+         <%= will_paginate %>
+         <%= render @leagues %>
+      </tbody>
+   </table>
+</div>
+<style type="text/css">
+   table {
+   width: 100%;
+   }
+   th {
+   height: 50px;
+   }
+</style>

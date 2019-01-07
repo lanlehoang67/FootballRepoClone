@@ -11,6 +11,5 @@ class Team < ApplicationRecord
   delegate :name, to: :league, prefix: true
   delegate :name, to: :stadium, prefix: true
   scope :newest, ->{order created_at: :desc}
-  scope :search_by_country, ->(search){where "nation like?", "%#{search}%" if search.present?}
-  scope :looking_for, ->(search){joins(:league).where("leagues.country like?","%#{search}%")}
+  scope :looking_for, ->(search){joins(:league).where("leagues.country like? or nation like?","%#{search.strip}%", "%#{search.strip}%")}
 end

@@ -19,6 +19,7 @@ class Admin::MatchResultsController < Admin::BaseController
         .match_results_controller.match_result_updated"
       redirect_to admin_match_results_path
     else
+      flash[:error] = "cannot update"
       render :edit
     end
   end

@@ -1,10 +1,10 @@
-<tr data-url="/admin/users/3"><td class=""><%= link_to user.id, user %></td>
+<tr data-url=""><td class=""><%= link_to user.id, user %></td>
 <td class=""><%= user.name %></td>
 <td class=""><%= user.email %></td>
 <td class="text-center"><span class="blank"><%= user.activated %></span></td>
 <td class="text-center"><span class="blank"><%= user.activated_at %></span></td>
 <td class="text-center"><span class="blank"><%= user.admin %></span></td>
-<td class=""><span class="blank">None</span></td>
+<td class=""><span class="blank"><%= user.money %></span></td>
 <td class="text-center"><time datetime="<%= user.created_at %>" class="timestamp"><%= l(user.created_at, format: :short) %></time></td>
 <td class="text-center"><time datetime="<%= user.updated_at %>" class="timestamp"><%= l(user.updated_at, format: :short) %></time></td>
 <td class="actions"><%= link_to t("users.user.delete"), admin_user_path(user), method: :delete,

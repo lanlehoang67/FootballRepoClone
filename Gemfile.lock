@@ -48,7 +48,7 @@ GEM
       io-like (~> 0.3.0)
     arel (9.0.0)
     ast (2.4.0)
-    autoprefixer-rails (9.4.3)
+    autoprefixer-rails (9.4.4)
       execjs
     bcrypt (3.1.12)
     bindex (0.5.0)
@@ -80,10 +80,10 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.4)
-    config (1.7.0)
+    config (1.7.1)
       activesupport (>= 3.0)
       deep_merge (~> 1.2.1)
-      dry-validation (>= 0.10.4)
+      dry-validation (>= 0.12.2)
     crass (1.0.4)
     deep_merge (1.2.1)
     dry-configurable (0.7.0)
@@ -99,7 +99,7 @@ GEM
       dry-container (~> 0.2, >= 0.2.6)
       dry-core (~> 0.2)
       dry-equalizer (~> 0.2)
-    dry-types (0.13.3)
+    dry-types (0.13.4)
       concurrent-ruby (~> 1.0)
       dry-container (~> 0.3)
       dry-core (~> 0.4, >= 0.4.4)
@@ -118,9 +118,12 @@ GEM
     ffi (1.9.25)
     figaro (1.1.1)
       thor (~> 0.14)
+    foundation-rails (5.4.3.1)
+      railties (>= 3.1.0)
+      sass (>= 3.2.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
-    i18n (1.2.0)
+    i18n (1.5.1)
       concurrent-ruby (~> 1.0)
     io-like (0.3.0)
     jbuilder (2.8.0)
@@ -144,7 +147,7 @@ GEM
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (0.9.2)
-    mimemagic (0.3.2)
+    mimemagic (0.3.3)
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
@@ -152,7 +155,7 @@ GEM
     multi_json (1.13.1)
     mysql2 (0.5.2)
     nio4r (2.3.1)
-    nokogiri (1.9.1)
+    nokogiri (1.10.0)
       mini_portile2 (~> 2.4.0)
     parallel (1.12.1)
     parser (2.5.3.0)
@@ -208,7 +211,7 @@ GEM
     ruby-progressbar (1.10.0)
     ruby_dep (1.5.0)
     rubyzip (1.2.2)
-    sass (3.7.2)
+    sass (3.7.3)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -245,11 +248,11 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    tzinfo-data (1.2018.7)
+    tzinfo-data (1.2018.9)
       tzinfo (>= 1.0.0)
     uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
-    unicode-display_width (1.4.0)
+    unicode-display_width (1.4.1)
     web-console (3.7.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -275,6 +278,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   config
   figaro
+  foundation-rails (= 5.4.3.1)
   jbuilder (~> 2.5)
   jquery-rails
   jquery-ui-rails
@@ -285,7 +289,7 @@ DEPENDENCIES
   rails (~> 5.2.1)
   rails-controller-testing
   rubocop (~> 0.54.0)
-  sass-rails (~> 5.0)
+  sass-rails
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)

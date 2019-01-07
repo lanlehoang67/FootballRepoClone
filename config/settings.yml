@@ -13,6 +13,8 @@ matches:
   value: 1
   valuemin: 90
   valueex: 0
+notifies:
+  page: 10
 match_results:
   page: 30
   value: 0
