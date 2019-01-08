@@ -29,7 +29,7 @@ class User < ApplicationRecord
   def reduce_money price
     ActiveRecord::Base.transaction do
       new_money = money.to_f - price.to_f
-      update_attributes money: new_money
+      update_attributes! money: new_money
     end
   end
 end

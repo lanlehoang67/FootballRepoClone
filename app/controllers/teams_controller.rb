@@ -6,10 +6,10 @@ class TeamsController < ApplicationController
   private
 
   def load_teams
-    @search_teams = Team.newest.looking_for(params[:search])
-    if @search_teams
-      @teams = @search_teams.paginate page: params[:page],
-                                      per_page: Settings.teams.page
+    search_teams = Team.newest.looking_for(params[:search])
+    if search_teams
+      @teams = search_teams.paginate page: params[:page],
+                                     per_page: Settings.teams.page
     end
   end
 end

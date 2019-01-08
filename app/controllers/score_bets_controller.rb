@@ -86,6 +86,7 @@ class ScoreBetsController < ApplicationController
         check_date
       else
         flash[:error] = t "score_bet.controller.not_enough_money"
+        redirect_to match_path(@match)
       end
     else
       redirect_to login_path
